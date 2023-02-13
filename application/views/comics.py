@@ -18,6 +18,7 @@ class SearchComic(MethodView):
         # Get params
         keyword_param = request.args.get(key='keyword', default='')
         type_param = request.args.get(key='type', default='')
+        id = request.args.get(key='id', default='')
 
         # Get Characters
         if type_param in list_characters or not type_param:
@@ -35,6 +36,11 @@ class SearchComic(MethodView):
                 params = f'title={keyword_param}'
             response_dict['comics'] = Comics.get_comics(
                 params=params
+            )
+
+        if id:
+            response_dict['comics'] = Comics.get_comics_by_id(
+                id=id
             )
         has_content = response_dict.get('comics') or response_dict.get('characters')
         code = 200 if has_content else 404

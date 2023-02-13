@@ -35,7 +35,6 @@ class Comics():
         response_api = MarvelAPI.make_request(
             endpoint=f'comics/{id}'
         )
-        print('response_api', response_api)
 
         if response_api:
             response_json = response_api.json()
