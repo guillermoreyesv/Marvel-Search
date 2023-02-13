@@ -36,7 +36,7 @@ class SearchComic(MethodView):
             response_dict['comics'] = Comics.get_comics(
                 params=params
             )
-        has_content = response_dict['comics'] or response_dict['characters']
+        has_content = response_dict.get('comics') or response_dict.get('characters')
         code = 200 if has_content else 404
 
         return response_dict, code
