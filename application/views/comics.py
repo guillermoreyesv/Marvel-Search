@@ -10,15 +10,25 @@ class SearchComic(MethodView):
 
         # Default Values
         response_dict = {
+            'code': 500,
+            'message': 'Server error'
         }
 
         list_characters = ['character', 'characters']
         list_comics = ['comic', 'comics']
+        list_filters = list_characters + list_comics
 
         # Get params
         keyword_param = request.args.get(key='keyword', default='')
-        type_param = request.args.get(key='type', default='')
+        type_param = request.args.get(key='type', default='').lower().strip()
         id = request.args.get(key='id', default='')
+
+        if type_param not in list_filters and type_param:
+            response_dict = {
+                'code': 400,
+                'message': f'type not allowed: {type_param}'
+            }
+            return response_dict, response_dict['code']
 
         # Get Characters
         if type_param in list_characters or not type_param:
