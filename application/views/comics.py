@@ -9,10 +9,7 @@ class SearchComic(MethodView):
         from application.utils.characters import Characters
 
         # Default Values
-        response_dict = {
-            'code': 500,
-            'message': 'Server error'
-        }
+        response_dict = {}
 
         list_characters = ['character', 'characters']
         list_comics = ['comic', 'comics']
