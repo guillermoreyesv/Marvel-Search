@@ -44,7 +44,7 @@ docker build -t search-comic .
 docker run -d -p 8000:8000 --network marvel-network --ip 172.18.0.10 --name search-container search-comic 
 ```
 
-8. Your Marvel-backend should now be up and running in http://127.0.0.1:8000!
+8. Your Marvel-Search should now be up and running in http://127.0.0.1:8000!
 
 ### In local
 
@@ -68,12 +68,11 @@ pip install --no-cache-dir -r requirements.txt
 python run.py
 ```
 
-9. Your Marvel-backend should now be up and running in http://127.0.0.1:5000!
+9. Your Marvel-Search should now be up and running in http://127.0.0.1:5000!
 
 ## Deployment
 To deploy this application to a production environment, you will need to follow the steps above, making any necessary modifications to match your environment.
 
 ## Built With
 - <ins>Flask</ins> - A lightweight Python web framework.
-- <ins>MongoDB</ins> - A NoSQL document-oriented database.
 - <ins>Docker</ins> - A platform for building and deploying applications in containers.
